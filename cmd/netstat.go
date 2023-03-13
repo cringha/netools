@@ -5,6 +5,7 @@ package cmd
 
 import (
 	"fmt"
+
 	"github.com/drael/GOnetstat"
 	"github.com/spf13/cobra"
 )
@@ -20,13 +21,8 @@ var types = []string{"tcp", "tcp6", "udp", "udp6"}
 // netstatCmd represents the netstat command
 var netstatCmd = &cobra.Command{
 	Use:   "netstat",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "list network stats, like netstat command",
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		// format header
@@ -51,11 +47,11 @@ func showNetStat(t string) {
 	if t == "tcp" {
 		d = GOnetstat.Tcp()
 	} else if t == "tcp" {
-		d = GOnetstat.Tcp()
+		d = GOnetstat.Tcp6()
 	} else if t == "udp" {
-		d = GOnetstat.Tcp()
+		d = GOnetstat.Udp()
 	} else if t == "udp6" {
-		d = GOnetstat.Tcp()
+		d = GOnetstat.Udp6()
 	} else {
 		d = GOnetstat.Tcp()
 	}

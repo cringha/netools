@@ -1,4 +1,4 @@
-module testping
+module nettools
 
 go 1.19
 
